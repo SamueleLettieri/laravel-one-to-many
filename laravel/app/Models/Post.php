@@ -9,7 +9,7 @@ class Post extends Model
 {
     //
     protected $fillable = [
-        'author',
+        'user_id',
         'title',
         'post_content',
         'post_image',
@@ -17,4 +17,8 @@ class Post extends Model
     ];
 
     use SoftDeletes;
+
+    public function user(){
+        return $this->belongsTo('App\User');
+    }
 }

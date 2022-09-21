@@ -17,20 +17,18 @@
     <table class="table table-success table-striped">
     <thead class="text-center">
         <th>ID</th>
-        <th>AUTHOR</th>
+        <th>USER</th>
         <th>TITLE</th>
-        <th>Button</th>
-
+        <th>Button</th>               
     </thead>
     <tbody class="text-center">
         @forelse ($posts as $post)
         <tr>
             <td>{{$post->id}}</td>
-            <td>{{$post->author}}</td>
+            <td>{{$post->user->name}}</td>
             <td><a href="{{route('admin.posts.show', $post->id)}}">{{$post->title}}</a></td>
             <td>
                 <a href="{{route('admin.posts.edit', $post->id)}}" class="btn px-3 mx-2  btn-sm btn-primary">Edit</a>
-                <a href="{{route('admin.posts.create', $post->id)}}" class="btn px-3 mx-2  btn-sm btn-primary">Create</a>
                 <form action="{{ route('admin.posts.destroy', $post->id) }}" method="POST" class="d-inline">
                     @csrf
                     @method('DELETE')

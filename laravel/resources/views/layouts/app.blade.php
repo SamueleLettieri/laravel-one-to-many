@@ -35,6 +35,13 @@
                     <ul class="navbar-nav mr-auto">
 
                     </ul>
+                    @guest
+                    @else
+                            <h4>
+                                Create
+                                <a href="{{route('admin.posts.create')}}" class="btn px-3 mr-2  btn-sm btn-primary">New Post</a>
+                            </h4>
+                    @endguest    
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">

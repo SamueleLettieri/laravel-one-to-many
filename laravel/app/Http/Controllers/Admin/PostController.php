@@ -26,7 +26,7 @@ class PostController extends Controller
     public function index()
     {
         //
-        $posts = Post::all();
+        $posts = Post::where('user_id', Auth::id())->get();
         return view('admin.posts.index', compact('posts'));
     }
 
@@ -56,7 +56,7 @@ class PostController extends Controller
 
 
         $data = $request->all();
-        $data['author'] = Auth::user()->name;
+        $data['user_id'] = Auth::id();
 
         $data['post_date'] = new DateTime();
         

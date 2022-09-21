@@ -13,7 +13,7 @@
             <img src="{{$post->post_image}}" class="card-img-top w-50 rounded-0 m-3" alt="{{$post->title}}img">
         </div>    
         <div class="card-body">
-            <h5 class="card-title m-3">{{$post->author}}</h5>
+            <h5 class="card-title m-3">{{$post->user->name}}</h5>
             <h3 class="card-title m-3">{{$post->title}}</h3>
             <p class="card-text m-3">{{$post->post_content}}</p>
             <a href="{{route('admin.posts.edit', $post->id)}}" class="btn px-3 mx-2  btn-sm btn-primary">Edit</a>
